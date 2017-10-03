@@ -1,0 +1,37 @@
+{
+  "name": "spotify-react",
+  "version": "1.0.0",
+  "description": "small app for using spotify built using react.js",
+  "main": "index.js",
+  "scripts": {
+    "b": "set NODE_ENV='production' && webpack -p",
+    "webpack-devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8050 --host 0.0.0.0"
+  },
+  "author": "Alexey Bondarovitch",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "bluebird": "^3.5.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.8.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.4.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "html-loader": "^0.5.1",
+    "json-loader": "^0.5.7",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
