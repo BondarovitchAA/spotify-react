@@ -1,13 +1,21 @@
 import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from 'components/App/App';
+import template from './template';
 
-const app = express();
+const server = express();
 
-app.use((req, res) => {
-    res.end('<p>Hello world</p>');
+server.use('/public/assets', express.static('public/assets'));
+
+server.get('/', (req, res) => {
+    const appString = renderToString(<App />);
+    res.send(template({
+        body: appString,
+        title: 'Spotify-react app'
+    }));
 });
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
-
-});
+server.listen(PORT);

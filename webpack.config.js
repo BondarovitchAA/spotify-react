@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const publicPath         = 'http://localhost:8050/public/assets';
 const cssName            = process.env.NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
 const jsName             = process.env.NODE_ENV === 'production' ? 'bundle-[hash].js' : 'bundle.js';
 
@@ -30,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: ['babel-polyfill', './src/client.js'],
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         extensions:         ['.js', '.jsx']
@@ -38,24 +37,13 @@ module.exports = {
     plugins,
     output: {
         path: `${__dirname}/public/assets/`,
-        filename: jsName,
-        publicPath
+        filename: jsName
     },
     module: {
         rules: [
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
-            },
-            {
                 test: /\.scss$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }]
+                use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
             },
             { test: /\.gif$/, loader: 'url-loader?limit=10000&mimetype=image/gif' },
             { test: /\.jpg$/, loader: 'url-loader?limit=10000&mimetype=image/jpg' },
@@ -64,15 +52,17 @@ module.exports = {
             { test: /\.(woff|woff2|ttf|eot)/, loader: 'url-loader?limit=1' },
             {
                 test: /\.jsx?$/,
-                use: ['babel-loader', 'eslint-loader'],
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env', 'react']
+                    }
+                }, 'eslint-loader'],
                 exclude: [/node_modules/, /public/]
             },
             { test: /\.json$/, loader: 'json-loader' }
         ]
     },
-    devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : null,
-    devServer: {
-        headers: { 'Access-Control-Allow-Origin': '*' }
-    }
+    devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : null
 };
 
