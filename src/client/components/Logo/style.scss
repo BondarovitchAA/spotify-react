@@ -1,0 +1,17 @@
+.logo {
+    padding: 20px;
+
+    &__image {
+        width: 40px;
+    }
+
+    &__text-container {
+        
+    }
+
+    &__text {
+        color: $brand-color-1;
+        font-weight: $font-weight-extra-light;
+        font-size: $font-size-large;
+    }
+}
