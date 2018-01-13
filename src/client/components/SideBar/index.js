@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import Logo from 'components/Logo';
 import Navigation from 'components/Navigation';
+import NavigationLink from 'components/NavigationLink';
 
 import './style.scss';
 
@@ -14,7 +15,11 @@ class SideBar extends PureComponent {
     return (
       <section className={sideBarClass}>
         <Logo className='sidebar__item' text='Spotify Search' />
-        <Navigation className='sidebar__item' />
+        <Navigation className='sidebar__item sidebar__navigation'>
+          <NavigationLink url='/' text='Search' icon='fa fa-search' />
+          <NavigationLink url='/' text='Now Playing' icon='fa fa-music' />
+          <NavigationLink url='/' text='My Playlists' icon='fa fa-list-ol' />
+        </Navigation>
       </section>
     );
   }

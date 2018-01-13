@@ -1,0 +1,29 @@
+.navigation-link {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    padding-top: 40px;
+
+    background-color: $brand-color-2;
+    text-align: center;
+
+    &__icon {
+        color: $white;
+        font-size: $font-size-extra-large;
+    }
+
+    &__text-container {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    &__text {
+        color: $white;
+    }
+
+    &:hover,
+    &:active {
+        background-color: $secondary-color-2;
+    }
+}

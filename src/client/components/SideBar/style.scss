@@ -1,7 +1,12 @@
 .sidebar {
-    background-color: $brand-color-2;
+    padding: 0 20px;
+    margin: 0 auto;
 
     &__item {
         background-color: $brand-color-3;
+    }
+
+    &__navigation {
+        margin-top: 20px;
     }
 }

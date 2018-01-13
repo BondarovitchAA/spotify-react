@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $brand-color-2;
+    
+    &::after {
+        content: "";
+        clear: both;
+    }
+
+    &__title {
+        flex-basis: 80%;
+        padding: 0;
+        color: $white;
+        font-weight: $font-weight-extra-light;
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: flex-end;
+        flex-basis: 20%;
+    }
+
+    &__button {
+        margin-right: 5px;
+    }
+}

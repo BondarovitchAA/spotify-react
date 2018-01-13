@@ -1,12 +1,29 @@
 .navigation {
+    padding: 30px 10px 20px 10px;
+
+    &__title-container {
+        text-align: center;
+    }
 
     &__title {
-        color: $brand-color-1;
+        color: $white;
         font-weight: $font-weight-extra-light;
-        font-size: $font-size-normal;
+        font-size: $font-size-small;
+    }
+
+    &__list {
+        list-style: none;
+        -webkit-appearance: none;
+        padding: 0;
     }
 
     &__item {
+        display: block;
+        width: 100%;
+        margin-top: 25px;
 
+        &:first-of-type {
+            margin-top: 10px;
+        }
     }
 }

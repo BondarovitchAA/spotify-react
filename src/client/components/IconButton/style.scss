@@ -1,0 +1,23 @@
+$button-color: $secondary-color-3;
+$button-color-active: $secondary-color-2;
+
+.icon-button {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    border-color: $button-color;
+
+    background-color: $brand-color-2;
+
+    color: $button-color;
+    font-size: $font-size-large;
+    
+    outline: none;
+
+
+    &.icon-button--active {
+        border-color: $button-color-active;
+        color: $button-color-active;
+    }
+}
