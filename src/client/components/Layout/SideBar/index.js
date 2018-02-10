@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Logo from 'components/Logo';
-import Navigation from 'components/Navigation';
+import Logo from 'components/Layout/Logo';
+import NavigationPanel from 'components/Navigation/NavigationPanel';
 
 import './style.scss';
 
@@ -13,7 +13,7 @@ const SideBar = ({ className, routes, currentRoute }) => {
   return (
     <section className={sideBarClass}>
       <Logo className='sidebar__item' text='Spotify Search' />
-      <Navigation
+      <NavigationPanel
         routes={routes}
         currentRoute={currentRoute}
         className='sidebar__item sidebar__navigation'

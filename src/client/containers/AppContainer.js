@@ -1,6 +1,7 @@
-import App from 'components/App';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import App from 'components/Layout/App';
 
 const routes = [
   { url: '/login', title: 'Sign In', icon: 'fa fa-sign-in', authorize: false, default: true },

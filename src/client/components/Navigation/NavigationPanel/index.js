@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import uuidv4 from 'uuid/v4';
 
-import NavigationLink from 'components/NavigationLink';
+import NavigationLink from 'components/Navigation/NavigationLink';
 
 import './style.scss';
 
-const Navigation = ({ className, routes }) => {
+const NavigationPanel = ({ className, routes }) => {
   const topClass = classNames('navigation', className);
 
   const wrappedNavItems = routes.map(route => {
@@ -30,10 +30,10 @@ const Navigation = ({ className, routes }) => {
   );
 };
 
-Navigation.propTypes = {
+NavigationPanel.propTypes = {
   className : PropTypes.string,
   routes : PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default Navigation;
+export default NavigationPanel;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import SideBar from 'components/SideBar';
-import MainPanel from 'components/MainPanel';
+import SideBar from 'components/Layout/SideBar';
+import MainPanel from 'components/Layout/MainPanel';
 
 import './style.scss';
 

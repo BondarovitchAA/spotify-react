@@ -1,7 +1,7 @@
-import actionTypes from 'actions/actionTypes';
+import { actionTypes } from 'actions/actionTypes';
 
-const authReducer = (state = {}, action) => {
-  switch (action) {
+const authReducer = (state = { isAuthorized: false }, action) => {
+  switch (action.type) {
     case actionTypes.LOGIN_SUCCESS :
       return {
         isAuthorized: true,

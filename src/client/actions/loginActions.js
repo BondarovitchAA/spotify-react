@@ -1,5 +1,5 @@
 import settings from 'constants/constants';
-import actionTypes from 'actions/actionTypes';
+import { actionTypes } from './actionTypes';
 
 export function sendAuthorizeRequest() {
   return () => {
@@ -13,7 +13,7 @@ export function sendAuthorizeRequest() {
 
 export function authorize(code) {
   return {
-    action: actionTypes.LOGIN_SUCCESS,
+    type: actionTypes.LOGIN_SUCCESS,
     code
   };
 }

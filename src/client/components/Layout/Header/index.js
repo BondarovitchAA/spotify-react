@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import IconButton from 'components/IconButton';
+import IconButton from 'components/Buttons/IconButton';
 
 import './style.scss';
 
