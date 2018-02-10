@@ -1,21 +1,19 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './style.scss';
 
-class IconButton extends PureComponent {
-  render() {
-    const iconButtonClass = classNames('icon-button', this.props.className);
-    const iconClass = classNames('icon-button__icon', this.props.icon);
+const IconButton = ({ className, icon }) => {
+  const iconButtonClass = classNames('icon-button', className);
+  const iconClass = classNames('icon-button__icon', icon);
 
-    return (
-      <button className={iconButtonClass}>
-        <i className={iconClass} aria-hidden='true' />
-      </button>
-    );
-  }
-}
+  return (
+    <button className={iconButtonClass}>
+      <i className={iconClass} aria-hidden='true' />
+    </button>
+  );
+};
 
 IconButton.propTypes = {
   icon: PropTypes.string.isRequired,

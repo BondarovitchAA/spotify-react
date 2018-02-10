@@ -1,29 +1,29 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import './style.scss';
 
-class NavigationLink extends PureComponent {
-  render() {
-    return (
-      <a href={this.props.url} className='navigation-link'>
-        <span className='navigation-link__icon'>
-          <i className={this.props.icon} aria-hidden='true' />
-        </span>
-        <div className='navigation-link__text-container'>
-          <span className='navigation-link__text'>
-            {this.props.text}
-          </span>
-        </div>
-      </a>
-    );
-  }
-}
+const NavigationLink = ({ route }) => {
+  const { url, icon, title } = route;
+
+  return (
+    <Link to={url} className='navigation-link'>
+      <span className='navigation-link__icon'>
+        <i className={icon} aria-hidden='true' />
+      </span>
+      <div className='navigation-link__text-container'>
+        <span className='navigation-link__text'>{title}</span>
+      </div>
+    </Link>
+  );
+};
 
 NavigationLink.propTypes = {
-  url: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  text: PropTypes.string
+  route: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default NavigationLink;

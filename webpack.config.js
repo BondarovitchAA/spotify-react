@@ -64,10 +64,16 @@ module.exports = {
         use: [ {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'react']
+            presets: [
+              ['@babel/preset-env', {
+                shippedProposals: true
+              } ],
+              '@babel/react'
+            ],
+            plugins: [ '@babel/plugin-proposal-class-properties' ]
           }
         }, 'eslint-loader'],
-        exclude: [/node_modules/, /public/]
+        exclude: /(node_modules|public)/
       },
       { test: /\.json$/, loader: 'json-loader' }
     ]

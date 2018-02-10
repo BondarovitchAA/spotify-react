@@ -1,0 +1,84 @@
+$player-height: 400px;
+
+.player {
+    display: grid;
+    height: $player-height;
+    grid-template-columns: 15% 70% 15%;
+
+    &__leftside,
+    &__rightside {
+        display: table;
+        width:100%;
+        height: 100%;
+        background-color: $secondary-color-3;
+        
+        cursor: pointer;
+    }
+
+    &__icon-container {
+        display: table-cell;
+        vertical-align: middle;
+        text-align:center;
+
+        .player__icon {
+            color: $secondary-color-4;
+            font-size: $font-size-large;
+        }
+    }
+
+    &__main {
+        position: relative;
+        display: table;
+        width: 100%;
+        height: 100%;
+        background: #3f4037;
+        background: -moz-linear-gradient(top, #3f4037 1%, #363832 6%, #363832 94%, #3f4037 99%);
+        background: -webkit-linear-gradient(top, #3f4037 1%,#363832 6%,#363832 94%,#3f4037 99%);
+        background: linear-gradient(to bottom, #3f4037 1%,#363832 6%,#363832 94%,#3f4037 99%);
+    }
+
+    &__icon-panel {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    &__text-container {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    &__instruments-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .player__instrument {
+            font-size: $font-size-normal;
+        }
+    }
+
+    &__instrument {
+        margin-top: 3px;
+        color: $secondary-color-3;
+    }
+
+    &__no-tracks-text {
+        color: $secondary-color-4;
+        font-size: $font-size-normal;
+    }
+
+    &__device-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+
+        .player__device {
+            color: $brand-color-1;
+            font-size: $font-size-large;
+        }
+    }
+}
