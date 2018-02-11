@@ -1,0 +1,16 @@
+.search {
+
+    &__input-container {
+        margin: 0 15%;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid $brand-color-1;
+        border-radius: 3px;
+        background: transparent;
+        color: $white;
+        outline: none;
+    }
+}

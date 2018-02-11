@@ -7,13 +7,13 @@ import NavigationLink from 'components/Navigation/NavigationLink';
 
 import './style.scss';
 
-const NavigationPanel = ({ className, routes }) => {
+const NavigationPanel = ({ className, routes, currentRoute }) => {
   const topClass = classNames('navigation', className);
 
   const wrappedNavItems = routes.map(route => {
     return (
       <li key={uuidv4()} className='navigation__item'>
-        <NavigationLink route={route} />
+        <NavigationLink route={route} isActive={route === currentRoute} />
       </li>
     );
   });
@@ -32,7 +32,8 @@ const NavigationPanel = ({ className, routes }) => {
 
 NavigationPanel.propTypes = {
   className : PropTypes.string,
-  routes : PropTypes.arrayOf(PropTypes.object).isRequired
+  routes : PropTypes.arrayOf(PropTypes.object).isRequired,
+  currentRoute : PropTypes.object.isRequired
 };
 
 export default NavigationPanel;

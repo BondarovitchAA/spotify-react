@@ -7,9 +7,17 @@
 
     &__center-container {
         display: flex;
-        align-items: center;
         justify-content: center;
         height: 80%;
         box-sizing: border-box;
+    }
+
+    &__player {
+        margin-top: 50px;
+    }
+
+    &__search {
+        width: 100%;
+        margin-top: 30px;
     }
 }

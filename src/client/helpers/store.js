@@ -4,7 +4,6 @@ import rootReducer from 'reducers/index';
 
 const defaultStore = {
   authorization : {
-    clientId: '305fa5d1f48e49a9bfa763c2b668bf35',
     isAuthorized: false
   }
 };

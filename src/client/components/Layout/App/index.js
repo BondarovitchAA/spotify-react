@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import SideBar from 'components/Layout/SideBar';
@@ -6,25 +6,42 @@ import MainPanel from 'components/Layout/MainPanel';
 
 import './style.scss';
 
-const App = ({ routes, currentRoute, isAuthorized }) => (
-  <div className='container container--dark'>
-    <SideBar
-      routes={routes}
-      currentRoute={currentRoute}
-      className='container__sidebar'
-    />
-    <MainPanel
-      isAuthorized={isAuthorized}
-      title={currentRoute.title}
-      className='container__main-panel'
-    />
-  </div>
-);
+class App extends PureComponent {
+  componentWillMount() {
+    if (!this.props.isAuthorized) {
+      const token = sessionStorage.getItem('accessToken');
+
+      if (token && token !== '') {
+        const tokenExpires = Date.parse(sessionStorage.getItem('tokenExpires'));
+
+        if (tokenExpires > new Date()) {
+          this.props.authorizeSuccess(token);
+        }
+      }
+    }
+  }
+
+  render() {
+    return (<div className='container container--dark'>
+      <SideBar
+        routes={this.props.routes}
+        currentRoute={this.props.currentRoute}
+        className='container__sidebar'
+      />
+      <MainPanel
+        isAuthorized={this.props.isAuthorized}
+        title={this.props.currentRoute.title}
+        className='container__main-panel'
+      />
+    </div>);
+  }
+}
 
 App.propTypes = {
   routes: PropTypes.array.isRequired,
   currentRoute: PropTypes.object.isRequired,
-  isAuthorized: PropTypes.bool.isRequired
+  isAuthorized: PropTypes.bool.isRequired,
+  authorizeSuccess: PropTypes.func.isRequired
 };
 
 export default withRouter(App);

@@ -1,20 +1,24 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-import * as loginActions from 'actions/loginActions';
+import * as loginActions from 'actions/authActions';
 
 import Login from 'components/MainContent/Login';
+import { parseHash } from 'helpers/urlHelpers';
 
 const queryString = require('query-string');
 
-
 const mapStateToProps = (state, ownProps) => {
   const { location } = ownProps;
-  const query = queryString.parse(location.search);
+  const queryParams = queryString.parse(location.search);
+  const hashParams = parseHash(location.hash);
 
   return {
-    ...state,
-    code : query.code ? query.code : null
+    isAuthorized: state.authorization.isAuthorized,
+    error: queryParams.error,
+    accessToken: hashParams.access_token || state.authorization.accessToken,
+    expiresIn: +hashParams.expires_in,
+    redirectedFrom: location.state && location.state.from && location.state.from.pathname
   };
 };
 

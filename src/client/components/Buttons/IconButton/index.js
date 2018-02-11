@@ -4,12 +4,12 @@ import classNames from 'classnames';
 
 import './style.scss';
 
-const IconButton = ({ className, icon }) => {
+const IconButton = ({ className, icon, onClick }) => {
   const iconButtonClass = classNames('icon-button', className);
   const iconClass = classNames('icon-button__icon', icon);
 
   return (
-    <button className={iconButtonClass}>
+    <button className={iconButtonClass} onClick={onClick}>
       <i className={iconClass} aria-hidden='true' />
     </button>
   );
@@ -17,6 +17,7 @@ const IconButton = ({ className, icon }) => {
 
 IconButton.propTypes = {
   icon: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
   className: PropTypes.string
 };
 

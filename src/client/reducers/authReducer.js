@@ -2,13 +2,13 @@ import { actionTypes } from 'actions/actionTypes';
 
 const authReducer = (state = { isAuthorized: false }, action) => {
   switch (action.type) {
-    case actionTypes.LOGIN_SUCCESS :
+    case actionTypes.AUTHORIZE_SUCCESS :
       return {
         isAuthorized: true,
-        code: state.code
+        accessToken: action.accessToken
       };
-    case actionTypes.LOGIN_FAILURE:
-    case actionTypes.LOGOUT:
+    case actionTypes.AUTHORIZE_FAILED:
+    case actionTypes.SIGNOUT:
       return {
         isAuthorized: false
       };

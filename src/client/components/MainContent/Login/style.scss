@@ -1,4 +1,7 @@
 .login {
+    display: flex;
+    align-items: center;
+
     &__button {
         display: inline-block;
         width: 180px;
@@ -7,6 +10,10 @@
         border-radius: 3px;
         background-color:  $brand-color-2;
         outline: none;
+    }
+
+    &__error {
+        color: #ff2424;
     }
 
     &__text {
