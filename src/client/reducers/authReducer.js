@@ -5,7 +5,7 @@ const authReducer = (state = { isAuthorized: false }, action) => {
     case actionTypes.AUTHORIZE_SUCCESS :
       return {
         isAuthorized: true,
-        accessToken: action.accessToken
+        accessToken: action.payload.accessToken
       };
     case actionTypes.AUTHORIZE_FAILED:
     case actionTypes.SIGNOUT:

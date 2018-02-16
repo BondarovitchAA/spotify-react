@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
-import Player from 'components/MainContent/Player';
-import Search from 'components/MainContent/Search';
+import Player from 'components/Player';
 import PrivateRoute from 'components/Utilities/PrivateRoute';
 import NotFound from 'components/Utilities/NotFound';
 
+import SearchContainer from 'containers/SearchContainer';
 import HeaderContainer from 'containers/HeaderContainer';
 import LoginContainer from 'containers/LoginContainer';
 
@@ -25,7 +25,7 @@ const MainPanel = ({ title, isAuthorized }) => (
         <PrivateRoute path='/search'
           className='main-panel__search'
           isAuthorized={isAuthorized}
-          component={Search}
+          component={SearchContainer}
         />
         <Route path='/login' component={LoginContainer} />
         <Route component={NotFound} />

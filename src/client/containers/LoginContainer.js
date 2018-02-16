@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import * as loginActions from 'actions/authActions';
 
-import Login from 'components/MainContent/Login';
+import Login from 'components/Login';
 import { parseHash } from 'helpers/urlHelpers';
 
 const queryString = require('query-string');

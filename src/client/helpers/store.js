@@ -5,6 +5,15 @@ import rootReducer from 'reducers/index';
 const defaultStore = {
   authorization : {
     isAuthorized: false
+  },
+  search: {
+    isFetching: false,
+    results: [],
+    pagination: {
+      total: 0,
+      previous: null,
+      next: null
+    }
   }
 };
 

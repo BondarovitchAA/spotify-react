@@ -1,7 +1,11 @@
 .search {
 
-    &__input-container {
+    &__input-container{
         margin: 0 15%;
+    }
+
+    &__total-container {
+        text-align: center;
     }
 
     &__input {
@@ -9,8 +13,13 @@
         padding: 5px;
         border: 1px solid $brand-color-1;
         border-radius: 3px;
+        box-sizing: border-box;
         background: transparent;
         color: $white;
         outline: none;
+    }
+
+    &__result-container {
+        margin: 20px 5% 0 5%;
     }
 }

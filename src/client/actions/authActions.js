@@ -15,7 +15,9 @@ export function sendAuthorizeRequest() {
 export function authorizeSuccess(accessToken) {
   return {
     type: actionTypes.AUTHORIZE_SUCCESS,
-    accessToken
+    payload: {
+      accessToken
+    }
   };
 }
 
