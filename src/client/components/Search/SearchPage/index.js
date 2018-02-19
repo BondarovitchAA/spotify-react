@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import Loader from 'react-loader';
 import SearchResultList from 'components/Search/SearchResultList';
+import Pagination from 'components/Utilities/Pagination';
 
 import './style.scss';
 
@@ -34,13 +35,18 @@ class Search extends PureComponent {
         <div className='search__total-container'>
           <span>{this.props.pagination.total} tracks were found.</span>
         </div>
-        <Loader loaded={!this.props.isFetching}>
-          <div className='search__result-container'>
+        <div className='search__result-container'>
+          <Loader loaded={!this.props.isFetching}>
             <SearchResultList items={this.props.results} />
-            <button className='search__previous' onClick={this.handlePreviousPageClick}>&lt;</button>
-            <button className='search__next' onClick={this.handleNextPageClick}>&gt;</button>
-          </div>
-        </Loader>
+            {this.props.results.length !== 0 &&
+            <Pagination
+              className='search__pagination'
+              onPreviousClick={this.handlePreviousPageClick}
+              onNextClick={this.handleNextPageClick}
+            />
+            }
+          </Loader>
+        </div>
       </div>
 
     );

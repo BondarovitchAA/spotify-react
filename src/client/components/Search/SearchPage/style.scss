@@ -20,6 +20,12 @@
     }
 
     &__result-container {
-        margin: 20px 5% 0 5%;
+        margin: 20px 15px 0 20px;
+        height: 85%;
+        min-height: 85%;
+    }
+
+    &__pagination {
+        margin-top: 20px;
     }
 }

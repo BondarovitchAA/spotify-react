@@ -18,7 +18,7 @@ export const receiveSearchResults = (results) => {
 };
 
 export const fetchSearchResults = (searchQuery) => {
-  const url = `${settings.apiUrl}v1/search?q=${searchQuery}&type=track;`;
+  const url = `${settings.apiUrl}v1/search?q=${searchQuery || ''}&type=track;`;
 
   return dispatch => {
     dispatch(requestSearch());

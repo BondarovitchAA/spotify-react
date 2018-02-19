@@ -14,8 +14,8 @@ const searchReducer = (state =
   switch (action.type) {
     case actionTypes.REQUEST_SEARCH :
       return {
-        isFetching: true,
-        ...state
+        ...state,
+        isFetching: true
       };
     case actionTypes.RECEIVE_SEARCH:
       return {
@@ -25,7 +25,6 @@ const searchReducer = (state =
           total: action.payload.results.total,
           previous: action.payload.results.previous,
           next: action.payload.results.next
-
         }
       };
     default:
