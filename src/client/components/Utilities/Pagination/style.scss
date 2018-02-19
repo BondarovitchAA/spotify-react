@@ -17,18 +17,6 @@
     &__left {
         right: 51%;
 
-        &.disabled {
-            i:first-child {
-                transform: translate(-5px, 0) rotate(0deg);
-            }
-
-            &:hover {
-                i:first-child {
-                    transform: translate(-5px, 0) rotate(0deg);
-                }
-            }
-        }
-
         &:active { 
             i:first-child {
                 transform: translate(1px, -1px) rotate(25deg);
@@ -53,6 +41,23 @@
             }
             &:last-child {
                 transform: translate(0, 1px) rotate(-40deg);
+            }
+        }
+
+        &.pagination--disabled {
+            opacity: 0.3;
+            cursor: default;
+            
+            i:first-child,
+            i:last-child {
+                transform: translate(-5px, 0) rotate(0deg);
+            }
+
+            &:hover {
+                i:first-child,
+                i:last-child {
+                    transform: translate(-5px, 0) rotate(0deg);
+                }
             }
         }
     }
@@ -86,6 +91,23 @@
 
         i:last-child {
             transform: translate(0, -1px) rotate(-40deg);
+        }
+
+        &.pagination--disabled {
+            opacity: 0.3;
+            cursor: default;
+
+            &:hover{
+                i:first-child,
+                i:last-child {
+                    transform: translate(5px, 0) rotate(0deg);
+                }
+            } 
+
+            i:first-child,
+            i:last-child {
+                transform: translate(5px, 0) rotate(0deg);
+            }
         }
     }
 

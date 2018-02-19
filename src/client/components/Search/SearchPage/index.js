@@ -17,11 +17,15 @@ class Search extends PureComponent {
   }
 
   handleNextPageClick() {
-    this.props.fetchPage(this.props.pagination.next);
+    if (this.props.pagination.next) {
+      this.props.fetchPage(this.props.pagination.next);
+    }
   }
 
   handlePreviousPageClick() {
-    this.props.fetchPage(this.props.pagination.previous);
+    if (this.props.pagination.previous) {
+      this.props.fetchPage(this.props.pagination.previous);
+    }
   }
 
   render() {
@@ -43,6 +47,8 @@ class Search extends PureComponent {
               className='search__pagination'
               onPreviousClick={this.handlePreviousPageClick}
               onNextClick={this.handleNextPageClick}
+              isFirst={!this.props.pagination.previous}
+              isLast={!this.props.pagination.next}
             />
             }
           </Loader>

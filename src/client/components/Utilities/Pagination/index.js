@@ -5,21 +5,23 @@ import classNames from 'classnames';
 
 import './style.scss';
 
-const Pagination = ({ className, onPreviousClick, onNextClick }) => {
+const Pagination = ({ className, onPreviousClick, onNextClick, isFirst, isLast }) => {
   const paginationClass = classNames('pagination', className);
+  const previousClass = classNames(
+    'pagination__button',
+    'pagination__left',
+    { 'pagination--disabled': isFirst });
+  const nextClass = classNames(
+    'pagination__button',
+    'pagination__right',
+    { 'pagination--disabled': isLast });
 
   return (
     <div className={paginationClass}>
-      <button
-        className='pagination__button pagination__left'
-        onClick={onPreviousClick}
-      >
+      <button className={previousClass} onClick={onPreviousClick}>
         <i/><i/>
       </button>
-      <button
-        className='pagination__button pagination__right'
-        onClick={onNextClick}
-      >
+      <button className={nextClass} onClick={onNextClick}>
         <i/><i/>
       </button>
     </div>
@@ -29,7 +31,9 @@ const Pagination = ({ className, onPreviousClick, onNextClick }) => {
 Pagination.propTypes = {
   className : PropTypes.string,
   onPreviousClick: PropTypes.func.isRequired,
-  onNextClick: PropTypes.func.isRequired
+  onNextClick: PropTypes.func.isRequired,
+  isFirst: PropTypes.bool,
+  isLast: PropTypes.bool
 };
 
 export default Pagination;
