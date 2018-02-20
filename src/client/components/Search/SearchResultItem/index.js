@@ -4,8 +4,15 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const SearchResultItem = ({ item }) => {
+  const defaultImageUrl = '/images/default_album.png';
+  const images = item.album.images;
+  const imageUrl = images && images[0] && images[0].url;
+
   return (
-    <div className='search-result-item'>{item.id}</div>
+    <div className='search-item'>
+      <img className='search-item__image' src={imageUrl || defaultImageUrl}/> :
+      <div className='search-item__info'><i/></div>
+    </div>
   );
 };
 
