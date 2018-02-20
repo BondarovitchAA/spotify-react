@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ScrollArea from 'react-scrollbar';
+import { Scrollbars } from 'react-custom-scrollbars';
 import SearchResultItem from 'components/Search/SearchResultItem';
+
+import './style.scss';
 
 const SearchResultList = ({ items }) => {
   const wrappedItems = items.map(item => {
@@ -10,9 +12,12 @@ const SearchResultList = ({ items }) => {
   });
 
   return (
-    <ScrollArea speed={0.8}>
-      {wrappedItems}
-    </ScrollArea>);
+    <Scrollbars>
+      <div className='search-result-list'>
+        {wrappedItems}
+      </div>
+    </Scrollbars>
+  );
 };
 
 SearchResultList.propTypes = {
