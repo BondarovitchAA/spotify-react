@@ -1,14 +1,9 @@
-import settings from 'constants/constants';
 import { actionTypes } from './actionTypes';
 
 
 export function sendAuthorizeRequest() {
   return () => {
-    const url = `${settings.baseUrl}authorize?` +
-    `client_id=${settings.clientId}&response_type=token&` +
-    `redirect_uri=${settings.redirectUrl}`;
-
-    window.location = url;
+    window.location = '/api/login';
   };
 }
 

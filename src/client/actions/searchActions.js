@@ -1,6 +1,6 @@
 import settings from 'constants/constants';
 import { actionTypes } from './actionTypes';
-import { fetchWithToken } from './helpers';
+import * as spotifyAPIService from 'helpers/spotifyAPIService';
 
 export const requestSearch = () => {
   return {
@@ -22,19 +22,15 @@ export const fetchSearchResults = (searchQuery) => {
 
   return dispatch => {
     dispatch(requestSearch());
-    return fetchWithToken(url)
-      .then(response => response.json())
-      .then(json =>
-        dispatch(receiveSearchResults(json)));
+    return spotifyAPIService.get(url)
+      .then(results => dispatch(receiveSearchResults(results)));
   };
 };
 
 export const fetchPage = (nextUrl) => {
   return dispatch => {
     dispatch(requestSearch());
-    return fetchWithToken(nextUrl)
-      .then(response => response.json())
-      .then(json =>
-        dispatch(receiveSearchResults(json)));
+    return spotifyAPIService.get(nextUrl)
+      .then(results => dispatch(receiveSearchResults(results)));
   };
 };

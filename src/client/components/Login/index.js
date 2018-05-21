@@ -16,9 +16,6 @@ class Login extends PureComponent {
       this.props.authorizeSuccess(this.props.accessToken);
     }
   }
-  handleClick() {
-    this.props.sendAuthorizeRequest();
-  }
 
   render() {
     if (this.props.isAuthorized && this.props.accessToken) {
@@ -27,16 +24,15 @@ class Login extends PureComponent {
     return (
       <div className='login'>
         {this.props.error && <div className='login__error'>Error: Authorization Failed.</div>}
-        <button className='login__button' onClick={this.handleClick}>
+        <a href='/api/login' className='login__button'>
           <span className='login__text'>Sign In Using Spotify</span>
-        </button>
+        </a>
       </div>
     );
   }
 }
 
 Login.propTypes = {
-  sendAuthorizeRequest : PropTypes.func.isRequired,
   authorizeSuccess: PropTypes.func.isRequired,
   authorizeFailed: PropTypes.func.isRequired,
   isAuthorized: PropTypes.bool.isRequired,
