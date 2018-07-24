@@ -1,0 +1,12 @@
+.html, .body, .root {
+    height: 100%;
+    overflow: hidden;
+}
+
+.root {
+    background-color: $brand-color-2;
+
+    &__container {
+        height:100%;
+    }
+}

@@ -22,7 +22,7 @@ class App extends PureComponent {
   }
 
   render() {
-    return (<div className='container container--dark'>
+    return (<div className='container root__container'>
       <SideBar
         routes={this.props.routes}
         currentRoute={this.props.currentRoute}
